@@ -45,7 +45,7 @@ class Tox(TestCommand):
 
 setup(
     name='xblock-submit-and-compare',
-    version='0.5.2',
+    version='0.6.2',
     description='Submit and Compare XBlock for self assessment',
     packages=[
         'submit_and_compare',
