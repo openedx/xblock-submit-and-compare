@@ -11,16 +11,18 @@ import pkg_resources
 from lxml import etree
 
 from django.template import Context, Template
-from django.template.loader import get_template
 from django.utils.translation import ungettext
 
 from xblock.core import XBlock
 from xblock.fields import Scope, String, List, Float, Integer
 from xblock.fragment import Fragment
+from xblockutils.resources import ResourceLoader
 
 from .mixins import EnforceDueDates
 
 LOG = logging.getLogger(__name__)
+
+loader = ResourceLoader(__name__)
 
 
 # Public
@@ -245,9 +247,9 @@ class SubmitAndCompareXBlock(EnforceDueDates, XBlock):
                 'is_past_due': self.is_past_due(),
             }
         )
-        template = get_template('submit_and_compare_view.html')
-        fragment = self.build_fragment(
-            template,
+        fragment = Fragment()
+        fragment.content = loader.render_template(
+            'templates/submit_and_compare_view.html',
             context
         )
         fragment.add_css(
