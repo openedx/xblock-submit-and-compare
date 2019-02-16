@@ -11,12 +11,13 @@ import os
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
-def package_data(pkg, root):
+def package_data(pkg, roots):
     """Generic function to find package_data for `pkg` under `root`."""
     data = []
-    for dirname, _, files in os.walk(os.path.join(pkg, root)):
-        for fname in files:
-            data.append(os.path.relpath(os.path.join(dirname, fname), pkg))
+    for root in roots:
+        for dirname, _, files in os.walk(os.path.join(pkg, root)):
+            for fname in files:
+                data.append(os.path.relpath(os.path.join(dirname, fname), pkg))
 
     return {pkg: data}
 
@@ -45,7 +46,7 @@ class Tox(TestCommand):
 
 setup(
     name='xblock-submit-and-compare',
-    version='0.6.2',
+    version='0.7.0',
     description='Submit and Compare XBlock for self assessment',
     packages=[
         'submit_and_compare',
@@ -70,7 +71,7 @@ setup(
     package_dir={
         'submit_and_compare': 'submit_and_compare',
     },
-    package_data=package_data("submit_and_compare", "static"),
+    package_data=package_data("submit_and_compare", ['static', 'templates']),
     classifiers=[
         # https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Intended Audience :: Developers',
