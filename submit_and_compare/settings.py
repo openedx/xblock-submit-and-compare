@@ -8,11 +8,7 @@ DATABASES = {
         # 'NAME': 'intentionally-omitted',
     },
 }
-
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-INSTALLED_APPS = (
-    'django_nose',
-)
-
+LOCALE_PATHS = [
+    'submit_and_compare/translations',
+]
 SECRET_KEY = 'submit_and_compare_SECRET_KEY'

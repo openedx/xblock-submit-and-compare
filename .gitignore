@@ -1,6 +1,9 @@
-.coverage
-.tox/
 *.egg-info/
+node_modules/
+*.log
+package-lock.json
 *.pyc
 *.sw[op]
-coverage.xml
+.tox/
+sdk/
+venv/

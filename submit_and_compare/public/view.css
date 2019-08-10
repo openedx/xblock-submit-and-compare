@@ -1,78 +1,65 @@
 .submit_and_compare .question_prompt {
   text-align: left;
 }
-
 .submit_and_compare .student_answer {
-  padding-top: 20px;
-  padding-bottom: 20px;
   color: #3399cc;
   font-weight: 600;
-}
-
-.submit_and_compare .answer {
-	width: 100%;
-	max-width: 100%;
-	height: 120px;
-	border: 3px solid #cccccc;
-	padding: 5px;
-}
-
-.submit_and_compare .expert_answer {
-  text-align: left;
   padding-bottom: 20px;
+  padding-top: 20px;
 }
-
-.submit_and_compare .our_answer {
+.submit_and_compare .answer {
+  border: 3px solid #cccccc;
+  height: 120px;
+  max-width: 100%;
+  padding: 5px;
+  width: 100%;
+}
+.submit_and_compare .expert_answer {
+  padding-bottom: 20px;
   text-align: left;
+}
+.submit_and_compare .our_answer {
   color: #009900;
   font-weight: 600;
-}
-
-.submit_and_compare .hint {
   text-align: left;
+}
+.submit_and_compare .hint {
   padding-bottom: 20px;
+  text-align: left;
 }
-
 .submit_and_compare .reset_button {
-	height: 40px;
-	vertical-align: middle;
-	font-weight: 600;
+  font-weight: 600;
+  height: 40px;
+  vertical-align: middle;
 }
-
 .submit_and_compare .hint_button {
-	height: 40px;
-	vertical-align: middle;
-	font-weight: 600;
+  font-weight: 600;
+  height: 40px;
+  vertical-align: middle;
 }
-
 .submit_and_compare .submit_button {
-	height: 40px;
-	vertical-align: middle;
-	font-weight: 600;
+  font-weight: 600;
+  height: 40px;
+  vertical-align: middle;
 }
-
 .submit_and_compare .problem_progress {
-    display: inline-block;
-    padding-left: 5px;
-    color: #666;
-    font-weight: 100;
-    font-size: 1em;
+  color: #666;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5px;
 }
-
 .submit_and_compare .problem_header {
-    display: inline-block;
+  display: inline-block;
 }
-
 .submit_and_compare .used_attempts_feedback {
-    margin-top: 8px;
-    color: #666;
-    font-style: italic;
+  color: #666;
+  font-style: italic;
+  margin-top: 8px;
 }
-
 .submit_and_compare .nodisplay {
-    display: none;
+  display: none;
 }
-
 .submit_and_compare .inline {
-    display: inline;
+  display: inline;
 }

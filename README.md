@@ -50,4 +50,3 @@ The Submit and Compare XBlock uses a simple XML-based structure as shown below:
 	</demandhint>
 </submit_and_compare>
 ```
-

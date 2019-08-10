@@ -1,12 +1,13 @@
 """
-Mixins for the Submit and Compare XBlock
+Extend XBlocks with datetime helpers
 """
 import datetime
 
 
-class EnforceDueDates(object):  # pylint: disable=too-few-public-methods
+# pylint: disable=too-few-public-methods
+class EnforceDueDates(object):
     """
-    Allow xblocks to check the due date
+    xBlock Mixin to allow xblocks to check the due date
     (taking the graceperiod into account) of the
     subsection in which they are placed
     """
