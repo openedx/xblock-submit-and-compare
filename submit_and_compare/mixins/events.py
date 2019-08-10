@@ -1,7 +1,13 @@
+"""
+Provide event-related mixin functionality
+"""
 from xblock.core import XBlock
 
 
-class EventableMixin:
+class EventableMixin(object):
+    """
+    Mix in standard event logic
+    """
 
     @XBlock.json_handler
     def publish_event(self, data, *args, **kwargs):
@@ -24,6 +30,9 @@ class EventableMixin:
         return result
 
     def _get_unique_id(self):
+        """
+        Get a unique component identifier
+        """
         try:
             unique_id = self.location.name
         except AttributeError:
@@ -32,6 +41,9 @@ class EventableMixin:
         return unique_id
 
     def _publish_grade(self):
+        """
+        Publish a grade event
+        """
         self.runtime.publish(
             self,
             'grade',
@@ -42,6 +54,9 @@ class EventableMixin:
         )
 
     def _publish_problem_check(self):
+        """
+        Publish a problem_check event
+        """
         self.runtime.publish(
             self,
             'problem_check',

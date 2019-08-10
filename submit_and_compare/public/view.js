@@ -1,6 +1,18 @@
 /* Javascript for submitcompareXBlock. */
+/* eslint-disable no-unused-vars */
+/* eslint-disable require-jsdoc */
+/**
+ * Initialize the student view
+ * @param {Object} runtime - The XBlock JS Runtime
+ * @param {Object} element - The containing DOM element for this instance of the XBlock
+ * @returns {undefined} nothing
+ */
 function SubmitAndCompareXBlockInitView(runtime, element) {
+    'use strict';
+    /* eslint-disable camelcase */
+    /* eslint-enable no-unused-vars */
 
+    var $ = window.jQuery;
     var handlerUrl = runtime.handlerUrl(element, 'student_submit');
     var hintUrl = runtime.handlerUrl(element, 'send_hints');
     var publishUrl = runtime.handlerUrl(element, 'publish_event');
@@ -12,7 +24,6 @@ function SubmitAndCompareXBlockInitView(runtime, element) {
     var problem_progress = $element.find('.problem_progress');
     var used_attempts_feedback = $element.find('.used_attempts_feedback');
     var button_holder = $element.find('.button_holder');
-    var question_prompt = $element.find('.question_prompt');
     var answer_textarea = $element.find('.answer');
     var your_answer = $element.find('.your_answer');
     var expert_answer = $element.find('.expert_answer');
@@ -26,10 +37,23 @@ function SubmitAndCompareXBlockInitView(runtime, element) {
     var cached_answer_id = xblock_id + '_cached_answer';
     var problem_progress_id = xblock_id + '_problem_progress';
     var used_attempts_feedback_id = xblock_id + '_used_attempts_feedback';
-    if ($xblocksContainer.data(cached_answer_id) !== undefined) {
+    if (typeof $xblocksContainer.data(cached_answer_id) !== 'undefined') {
         answer_textarea.text($xblocksContainer.data(cached_answer_id));
         problem_progress.text($xblocksContainer.data(problem_progress_id));
         used_attempts_feedback.text($xblocksContainer.data(used_attempts_feedback_id));
+    }
+
+    /**
+     * Parse and display hints
+     * @param {Object} result - The result payload
+     * @returns {undefined} nothing
+     */
+    function set_hints(result) {
+        hints = result.hints;
+        if (hints.length > 0) {
+            hint_button.css('display', 'inline');
+            hint_button_holder.css('display', 'inline');
+        }
     }
 
     $.ajax({
@@ -60,14 +84,6 @@ function SubmitAndCompareXBlockInitView(runtime, element) {
         used_attempts_feedback.text(result.used_attempts_feedback);
     }
 
-    function set_hints(result) {
-        hints = result.hints;
-        if (hints.length > 0) {
-            hint_button.css('display', 'inline');
-            hint_button_holder.css('display', 'inline');
-        }
-    }
-
     function show_answer() {
         your_answer.css('display', 'block');
         expert_answer.css('display', 'block');
@@ -94,14 +110,14 @@ function SubmitAndCompareXBlockInitView(runtime, element) {
             event_type: 'hint_button',
             next_hint_index: hint_counter,
         });
-        if (hint_counter == hints.length - 1) {
+        if (hint_counter === hints.length - 1) {
             hint_counter = 0;
         } else {
             hint_counter++;
         }
     }
 
-    $('.submit_button', element).click(function (eventObject) {
+    $('.submit_button', element).click(function () {
         pre_submit();
         $.ajax({
             type: 'POST',
@@ -117,7 +133,7 @@ function SubmitAndCompareXBlockInitView(runtime, element) {
         show_answer();
     });
 
-    $('.reset_button', element).click(function (eventObject) {
+    reset_button.click(function () {
         $('.answer', element).val('');
         $.ajax({
             type: 'POST',
@@ -134,12 +150,12 @@ function SubmitAndCompareXBlockInitView(runtime, element) {
         reset_hint();
     });
 
-    $('.hint_button', element).click(function (eventObject) {
+    $('.hint_button', element).click(function () {
         show_hint();
     });
 
-    if ($('.answer', element).val() != '') {
+    if ($('.answer', element).val() !== '') {
         show_answer();
     }
-
+    /* eslint-enable camelcase */
 }

@@ -28,3 +28,5 @@ dummy-variables-rgx = _|dummy|unused|.*_unused|args|kwargs
 defining-attr-methods = __init__,__new__,setUp
 valid-classmethod-first-arg = cls
 valid-metaclass-classmethod-first-arg = mcs
+
+extension-pkg-whitelist=lxml

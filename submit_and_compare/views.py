@@ -17,6 +17,11 @@ LOG = logging.getLogger(__name__)
 
 
 def _convert_to_int(value_string):
+    """
+    Convert a string to integer
+
+    Default to 0
+    """
     try:
         value = int(value_string)
     except ValueError:
@@ -25,10 +30,10 @@ def _convert_to_int(value_string):
 
 
 def get_body(xmlstring):
-    # pylint: disable=no-member
     """
     Helper method
     """
+    # pylint: disable=no-member
     tree = etree.parse(StringIO(xmlstring))
     body = tree.xpath('/submit_and_compare/body')
     body_string = etree.tostring(body[0], method='text', encoding='unicode')
@@ -42,7 +47,11 @@ def _get_explanation(xmlstring):
     """
     tree = etree.parse(StringIO(xmlstring))
     explanation = tree.xpath('/submit_and_compare/explanation')
-    explanation_string = etree.tostring(explanation[0], method='text', encoding='unicode')
+    explanation_string = etree.tostring(
+        explanation[0],
+        method='text',
+        encoding='unicode',
+    )
     return explanation_string
 
 
@@ -87,20 +96,6 @@ class SubmitAndCompareViewMixin(
         })
         return context
 
-    @XBlock.json_handler
-    def student_submit(self, data, **kwargs):
-        """
-        Save student answer
-        """
-        if self.is_past_due():
-            success_value = False
-        else:
-            success_value = True
-            self.student_answer = data['answer']
-        return {
-            'success': success_value,
-        }
-
     def studio_view(self, context=None):
         """
         Build the fragment for the edit/studio view
@@ -132,19 +127,20 @@ class SubmitAndCompareViewMixin(
         return fragment
 
     @XBlock.json_handler
-    def studio_view_save(self, data, *args, **kwargs):
+    def studio_submit(self, data, *args, **kwargs):
         """
-        Save XBlock fields
+        Save studio edits
         """
-        self.display_name = submissions['display_name']
-        self.weight = _convert_to_int(submissions['weight'])
-        max_attempts = _convert_to_int(submissions['max_attempts'])
+        # pylint: disable=unused-argument
+        self.display_name = data['display_name']
+        self.weight = _convert_to_int(data['weight'])
+        max_attempts = _convert_to_int(data['max_attempts'])
         if max_attempts >= 0:
             self.max_attempts = max_attempts
-        self.your_answer_label = submissions['your_answer_label']
-        self.our_answer_label = submissions['our_answer_label']
-        self.submit_button_label = submissions['submit_button_label']
-        xml_content = submissions['data']
+        self.your_answer_label = data['your_answer_label']
+        self.our_answer_label = data['our_answer_label']
+        self.submit_button_label = data['submit_button_label']
+        xml_content = data['data']
         # pylint: disable=no-member
         try:
             etree.parse(StringIO(xml_content))
@@ -160,14 +156,16 @@ class SubmitAndCompareViewMixin(
         }
 
     @XBlock.json_handler
-    def student_submit(self, submissions, suffix=''):
-        # pylint: disable=unused-argument
+    def student_submit(self, data, *args, **kwargs):
         """
         Save student answer
         """
+        # pylint: disable=unused-argument
         # when max_attempts == 0, the user can make unlimited attempts
         success = False
+        # pylint: disable=no-member
         if self.max_attempts > 0 and self.count_attempts >= self.max_attempts:
+            # pylint: enable=no-member
             LOG.error(
                 'User has already exceeded the maximum '
                 'number of allowed attempts',
@@ -177,9 +175,9 @@ class SubmitAndCompareViewMixin(
                 'This problem is past due',
             )
         else:
-            self.student_answer = submissions['answer']
-            if submissions['action'] == 'submit':
-                self.count_attempts += 1
+            self.student_answer = data['answer']
+            if data['action'] == 'submit':
+                self.count_attempts += 1  # pylint: disable=no-member
             if self.student_answer:
                 self.score = 1.0
             else:
@@ -196,14 +194,14 @@ class SubmitAndCompareViewMixin(
         return result
 
     @XBlock.json_handler
-    def send_hints(self, submissions, suffix=''):
-        # pylint: disable=unused-argument
-        # pylint: disable=no-member
+    def send_hints(self, data, *args, **kwargs):
         """
         Build hints once for user
         This is called once on page load and
         js loop through hints on button click
         """
+        # pylint: disable=unused-argument
+        # pylint: disable=no-member
         tree = etree.parse(StringIO(self.question_string))
         raw_hints = tree.xpath('/submit_and_compare/demandhint/hint')
         decorated_hints = list()
@@ -228,6 +226,7 @@ class SubmitAndCompareViewMixin(
         """
         result = ''
         if self.max_attempts > 0:
+            # pylint: disable=no-member
             result = ungettext(
                 'You have used {count_attempts} of {max_attempts} submission',
                 'You have used {count_attempts} of {max_attempts} submissions',
@@ -236,15 +235,21 @@ class SubmitAndCompareViewMixin(
                 count_attempts=self.count_attempts,
                 max_attempts=self.max_attempts,
             )
+            # pylint: enable=no-member
         return result
 
     def _can_submit(self):
+        """
+        Determine if a user can submit a response
+        """
         if self.is_past_due():
             return False
         if self.max_attempts == 0:
             return True
+        # pylint: disable=no-member
         if self.count_attempts < self.max_attempts:
             return True
+        # pylint: enable=no-member
         return False
 
     def _get_submit_class(self):

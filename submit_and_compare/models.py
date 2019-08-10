@@ -12,6 +12,10 @@ from xblock.fields import String
 
 
 class SubmitAndCompareModelMixin(object):
+    """
+    Handle data access logic for the XBlock
+    """
+
     has_score = True
     display_name = String(
         display_name='Display Name',
