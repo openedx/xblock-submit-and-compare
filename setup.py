@@ -1,67 +1,35 @@
 """
-Setup for submit-and-compare xblock
-Note: The tox testing environemnt depends on version 0.1.2 of opaque_keys,
-which is not available on PyPi. The dependency is included in
-requirements.txt to match the version used Stanford-Online's
-fork of edx-platform.
+A submit-and-compare XBlock
 """
-
-
-import os
+from os import path
 from setuptools import setup
-from setuptools.command.test import test as TestCommand
-
-def package_data(pkg, roots):
-    """Generic function to find package_data for `pkg` under `root`."""
-    data = []
-    for root in roots:
-        for dirname, _, files in os.walk(os.path.join(pkg, root)):
-            for fname in files:
-                data.append(os.path.relpath(os.path.join(dirname, fname), pkg))
-
-    return {pkg: data}
 
 
-class Tox(TestCommand):
-    user_options = [('tox-args=', 'a', "Arguments to pass to tox")]
-
-    def initialize_options(self):
-        TestCommand.initialize_options(self)
-        self.tox_args = None
-
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        # import here, cause outside the eggs aren't loaded
-        import tox
-        import shlex
-        args = self.tox_args
-        if args:
-            args = shlex.split(self.tox_args)
-        errno = tox.cmdline(args=args)
-        sys.exit(errno)
+version = '1.0.0'
+description = __doc__.strip().split('\n')[0]
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.rst')) as file_in:
+    long_description = file_in.read()
 
 setup(
     name='xblock-submit-and-compare',
-    version='0.7.0',
-    description='Submit and Compare XBlock for self assessment',
+    version=version,
+    description=description,
+    long_description=long_description,
+    author='stv',
+    author_email='stv@stanford.edu',
+    url='https://github.com/Stanford-Online/xblock-submit-and-compare',
+    license='AGPL-3.0',
     packages=[
         'submit_and_compare',
     ],
     install_requires=[
-        'coverage',
-        'django',
-        'django_nose',
-        'mako',
+        'Django<2.0.0',
+        'edx-opaque-keys',
         'mock',
+        'six',
         'XBlock',
         'xblock-utils',
-    ],
-    dependency_links=[
-        'https://github.com/edx/xblock-utils/tarball/c39bf653e4f27fb3798662ef64cde99f57603f79#egg=xblock-utils',
     ],
     entry_points={
         'xblock.v1': [
@@ -71,7 +39,14 @@ setup(
     package_dir={
         'submit_and_compare': 'submit_and_compare',
     },
-    package_data=package_data("submit_and_compare", ['static', 'templates']),
+    package_data={
+        "submit_and_compare": [
+            'public/*',
+            'scenarios/*.xml',
+            'static/*',
+            'templates/*',
+        ],
+    },
     classifiers=[
         # https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Intended Audience :: Developers',
@@ -83,4 +58,5 @@ setup(
         'Topic :: Education',
         'Topic :: Internet :: WWW/HTTP',
     ],
+    test_suite='submit_and_compare.tests',
 )
