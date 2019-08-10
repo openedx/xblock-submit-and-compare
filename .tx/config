@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[stanford-openedx-xblocks.image-modal]
+file_filter = submit_and_compare/translations/<lang>/LC_MESSAGES/django.po
+source_file = submit_and_compare/translations/en/LC_MESSAGES/django.po
+source_lang = en
+type = PO
