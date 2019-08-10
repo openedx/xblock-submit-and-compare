@@ -1,17 +1,14 @@
-Image Modal XBlock
-==================
+Submit and Compare XBlock
+=========================
 
-A full-screen image modal XBlock,
-for use within the OpenEdX platform.
+This XBlock provides a way to do an ungraded self assessment activity.
+It is useful for synthesis questions, or questions which require the
+student to answer in her own words.
+After the student submits her answer, she is able to see the
+instructor's answer, and compare her answer to the expert answer.
 
 |badge-travis|
 |badge-coveralls|
-
-The full-screen image tool is another way of enabling participants to
-see more detail in your provided images. This tool is useful for large
-images with lots of details. A re-sized version of the image displays in
-the page, but clicking on the image pops open a full-screen modal with
-the full-size version of the image.
 
 |image-lms-view-normal|
 
