@@ -41,7 +41,6 @@ requirements:  # Install required packages
 .PHONY: requirements_js
 requirements_js:  # Install required packages
 	npm install
-	cp node_modules/draggabilly/dist/draggabilly.pkgd.min.js $(module_root)/public/
 
 .PHONY: static
 static: requirements_js $(css_files)  ## Compile the less->css
@@ -65,7 +64,7 @@ translations: $(po_files)  ## Update translation files
 	@echo 'where `fr` is the language code.'
 	@echo
 
-_NAME=image-modal:latest
+_NAME=submit_and_compare:latest
 _VOLUME=-v '$(PWD):/root/xblock'
 _PORT=
 runserver: _PORT = -p 8000:8000

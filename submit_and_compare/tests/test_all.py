@@ -10,8 +10,8 @@ from django.utils.translation import ugettext as _
 from opaque_keys.edx.locations import SlashSeparatedCourseKey
 from xblock.field_data import DictFieldData
 
-from .submit_and_compare import SubmitAndCompareXBlock
-from .submit_and_compare import get_body
+from ..xblocks import SubmitAndCompareXBlock
+from ..views import get_body
 
 
 class SubmitAndCompareXblockTestCase(unittest.TestCase):

@@ -2,10 +2,12 @@
 Handle data access logic for the XBlock
 """
 from __future__ import absolute_import
+import textwrap
 
 from django.utils.translation import ugettext_lazy as _
 from xblock.fields import Float
 from xblock.fields import Integer
+from xblock.fields import List
 from xblock.fields import Scope
 from xblock.fields import String
 
