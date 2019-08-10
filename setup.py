@@ -33,8 +33,8 @@ setup(
     ],
     entry_points={
         'xblock.v1': [
-            'submit-and-compare = submit_and_compare:SubmitAndCompareXBlock',
-        ]
+            'submit-and-compare = submit_and_compare.xblocks:SubmitAndCompareXBlock',
+        ],
     },
     package_dir={
         'submit_and_compare': 'submit_and_compare',
