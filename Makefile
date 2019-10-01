@@ -1,17 +1,19 @@
 #!/usr/bin/make -f
-module_root := ./submit_and_compare
+module_root := submit_and_compare
 css_files := $(patsubst %.less, %.css, $(wildcard ./$(module_root)/public/*.less))
-html_files := $(wildcard ./$(module_root)/templates/*.html)
-js_files := $(wildcard ./$(module_root)/public/*.js)
-files_with_translations := $(js_files) $(html_files)
+html_files := $(wildcard $(module_root)/templates/*.html)
+js_files := $(wildcard $(module_root)/public/*.js)
+py_files := $(wildcard $(module_root)/**/*.py)
+files_with_translations := $(js_files) $(html_files) $(py_files)
 translation_root := $(module_root)/translations
-po_files := $(wildcard $(translation_root)/*/LC_MESSAGES/django.po)
+po_files := $(wildcard $(translation_root)/*/LC_MESSAGES/text.po)
 ifneq ($(strip $(language)),)
-    po_files := $(po_files) $(translation_root)/$(language)/LC_MESSAGES/django.po
+	po_files := $(po_files) $(translation_root)/$(language)/LC_MESSAGES/text.po
 endif
 ifeq ($(strip $(po_files)),)
-    po_files = $(translation_root)/en/LC_MESSAGES/django.po
+	po_files = $(translation_root)/en/LC_MESSAGES/text.po
 endif
+mo_files := $(patsubst %.po,%.mo,$(po_files))
 
 .PHONY: help
 help:  ## This.
@@ -34,12 +36,19 @@ clean:  ## Remove build artifacts
 	find . -name '*.pyc' -delete
 	find . -name __pycache__ -delete
 
+.PHONY: quality
+quality: requirements  # Run all quality checks
+	tox -e csslint,eslint,pycodestyle,pylint
+
 .PHONY: requirements
-requirements:  # Install required packages
+requirements: requirements_js requirements_py  ## Install all required packages
+
+.PHONY: requirements_py
+requirements_py:  # Install required python packages
 	pip install tox==3.7.0
 
 .PHONY: requirements_js
-requirements_js:  # Install required packages
+requirements_js:  # Install required javascript packages
 	npm install
 
 .PHONY: static
@@ -49,20 +58,36 @@ $(module_root)/public/%.css: $(module_root)/public/%.less
 	node_modules/less/bin/lessc $< $@
 
 .PHONY: test
-test: requirements requirements_js  ## Run all quality checks and unit tests
+test: requirements  ## Run all quality checks and unit tests
 	tox -p all
 
-$(translation_root)/%/LC_MESSAGES/django.po: $(files_with_translations)
+# extract
+%.po: $(files_with_translations)
 	mkdir -p $(@D)
-	./manage.py makemessages -l $(shell echo $(@) | cut -d'/' -f 3)
+	./manage.py makemessages -l "$(patsubst $(translation_root)/%/LC_MESSAGES,%,$(@D))"
+	mv "$(patsubst %/text.po,%/django.po,$(@))" "$(@)"
+
+# compile
+%.mo: %.po
+	msgfmt -o "$(@)" "$(<)"
+
 .PHONY: translations
-translations: $(po_files)  ## Update translation files
+translations:  ## Update translation files
+	make $(mo_files)
 	@echo
-	@echo 'Translations updated.'
+	@echo 'Translations up-to-date.'
 	@echo "You can add a new language like this:"
-	@echo '    make $(@) language=fr'
+	@echo '	make $(@) language=fr'
 	@echo 'where `fr` is the language code.'
 	@echo
+
+.PHONY: translations_pull
+translations_pull:  ## Pull new translations from Transifex
+	tox -e transifex_pull
+
+.PHONY: translations_push
+translations_push:  ## Push translations to Transifex
+	tox -e transifex_push
 
 _NAME=submit_and_compare:latest
 _VOLUME=-v '$(PWD):/root/xblock'
@@ -81,7 +106,7 @@ build_docker:
 define run-in-docker
 $(docker_make_more) $(patsubst docker_%, %, $@)
 endef
-docker_shell:
+docker_shell:  ## Drop into a shell inside the docker container
 	$(docker_run) --entrypoint /bin/bash $(_NAME)
 docker_static: ; make build_docker; $(run-in-docker)  ## Compile static assets in docker container
 docker_translations: ; make build_docker; $(run-in-docker)  ## Update translation files in docker container
