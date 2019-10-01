@@ -65,6 +65,16 @@ class SubmitAndCompareViewMixin(
     loader = ResourceLoader(__name__)
     static_js_init = 'SubmitAndCompareXBlockInitView'
     icon_class = 'problem'
+    editable_fields = [
+        'display_name',
+        'weight',
+        'max_attempts',
+        'your_answer_label',
+        'our_answer_label',
+        'submit_button_label',
+        'question_string',
+    ]
+    show_in_read_only_mode = True
 
     def provide_context(self, context=None):
         """

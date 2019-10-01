@@ -62,6 +62,7 @@ class SubmitAndCompareModelMixin(object):
     question_string = String(
         help='Default question content ',
         scope=Scope.content,
+        multiline_editor=True,
         default=textwrap.dedent("""
             <submit_and_compare schema_version='1'>
                 <body>
