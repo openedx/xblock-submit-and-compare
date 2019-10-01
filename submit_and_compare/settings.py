@@ -8,4 +8,7 @@ DATABASES = {
         # 'NAME': 'intentionally-omitted',
     },
 }
+LOCALE_PATHS = [
+    'submit_and_compare/translations',
+]
 SECRET_KEY = 'submit_and_compare_SECRET_KEY'
