@@ -16,6 +16,7 @@ output-format = text
 
 [BASIC]
 good-names = f,i,j,k,db,ex,Run,_,__,js
+ignored-argument-names=arg|args|kwargs
 no-docstring-rgx = __.*__$|test_.+|setUp$|setUpClass$|tearDown$|tearDownClass$|Meta$
 
 [FORMAT]
