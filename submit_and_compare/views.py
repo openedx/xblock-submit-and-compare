@@ -3,10 +3,10 @@ Handle view logic for the XBlock
 """
 from __future__ import absolute_import
 import logging
-from StringIO import StringIO
 
 from django.utils.translation import ungettext
 from lxml import etree
+from six import StringIO
 from xblock.core import XBlock
 from xblockutils.resources import ResourceLoader
 
