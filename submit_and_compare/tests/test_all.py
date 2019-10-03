@@ -1,9 +1,10 @@
 """
 Tests for xblock-submit-and-compare
 """
+import re
 import unittest
+from xml.sax.saxutils import escape
 
-import cgi
 import mock
 from django.test.client import Client
 from django.utils.translation import ugettext as _
@@ -58,8 +59,10 @@ class SubmitAndCompareXblockTestCase(unittest.TestCase):
         xblock_body = get_body(
             self.xblock.question_string
         )
+        studio_view_html = re.sub(r'\W+', ' ', studio_view_html.strip())
+        xblock_body = re.sub(r'\W+', ' ', xblock_body.strip())
         self.assertIn(
-            cgi.escape(xblock_body),
+            escape(xblock_body),
             studio_view_html,
         )
         self.assertIn(str(self.xblock.max_attempts), studio_view_html)
