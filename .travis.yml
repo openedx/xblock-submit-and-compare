@@ -5,15 +5,13 @@ addons:
 language: python
 python:
   - 3.5
+  - 3.8
 sudo: false
 env:
   - TOXENV=eslint
   - TOXENV=pylint
   - TOXENV=csslint
   - TOXENV=pycodestyle
-  - TOXENV=django111
-  - TOXENV=django20
-  - TOXENV=django21
   - TOXENV=django22
 
 before_install:
@@ -26,7 +24,7 @@ install:
   - "make requirements"
   - "pip install coveralls"
 script:
-  - make test
+  - tox -e $TOXENV
 branches:
     only:
       - master
