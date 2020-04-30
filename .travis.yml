@@ -24,7 +24,7 @@ install:
   - "make requirements"
   - "pip install coveralls"
 script:
-  - tox -e $TOXENV
+  - tox
 branches:
     only:
       - master
