@@ -21,8 +21,7 @@ cache:
     directories:
         - $HOME/.cache/pip
 install:
-  - "make requirements"
-  - "pip install coveralls"
+  - "make requirements_travis"
 script:
   - tox
 branches:
