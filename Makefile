@@ -38,6 +38,7 @@ clean:  ## Remove build artifacts
 
 .PHONY: quality
 quality: requirements  # Run all quality checks
+	pip install -r quality.txt
 	tox -e csslint,eslint,pycodestyle,pylint
 
 .PHONY: requirements
@@ -49,7 +50,7 @@ requirements_py:  # Install required python packages
 
 .PHONY: requirements_travis
 requirements_travis:  requirements_js # Install travis requirements
-	pip install -r requirements/base.txt
+	pip install -r requirements/travis.txt
 
 .PHONY: requirements_js
 requirements_js:  # Install required javascript packages
