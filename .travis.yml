@@ -9,9 +9,8 @@ python:
 sudo: false
 env:
   - TOXENV=eslint
-  - TOXENV=pylint
   - TOXENV=csslint
-  - TOXENV=pycodestyle
+  - TOXENV=quality
   - TOXENV=django22
 
 before_install:
