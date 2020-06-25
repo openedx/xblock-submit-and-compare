@@ -1,7 +1,6 @@
 """
 Handle data access logic for the XBlock
 """
-from __future__ import absolute_import
 import textwrap
 
 from xblock.fields import Float
