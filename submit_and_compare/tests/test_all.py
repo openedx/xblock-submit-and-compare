@@ -5,7 +5,7 @@ import re
 import unittest
 from xml.sax.saxutils import escape
 
-import mock
+from unittest import mock
 from django.test.client import Client
 from django.utils.translation import ugettext as _
 from opaque_keys.edx.locations import SlashSeparatedCourseKey

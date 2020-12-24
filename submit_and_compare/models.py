@@ -10,7 +10,7 @@ from xblock.fields import Scope
 from xblock.fields import String
 
 
-class SubmitAndCompareModelMixin(object):
+class SubmitAndCompareModelMixin:
     """
     Handle data access logic for the XBlock
     """

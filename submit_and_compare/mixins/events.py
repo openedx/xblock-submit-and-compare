@@ -4,7 +4,7 @@ Provide event-related mixin functionality
 from xblock.core import XBlock
 
 
-class EventableMixin(object):
+class EventableMixin:
     """
     Mix in standard event logic
     """

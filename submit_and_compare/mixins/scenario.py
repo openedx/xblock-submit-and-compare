@@ -54,7 +54,7 @@ def _find_files(directory):
     return files
 
 
-class XBlockWorkbenchMixin(object):
+class XBlockWorkbenchMixin:
     """
     Provide a default test workbench for the XBlock
     """
