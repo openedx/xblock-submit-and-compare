@@ -289,7 +289,7 @@ class SubmitAndCompareViewMixin(
             )
         else:
             scaled_score = self.score * self.weight
-            score_string = '{0:g}'.format(scaled_score)
+            score_string = f'{scaled_score:g}'
             result = "({})".format(
                 ungettext(
                     score_string + '/' + "{weight} point",

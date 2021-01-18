@@ -5,7 +5,7 @@ import datetime
 
 
 # pylint: disable=too-few-public-methods
-class EnforceDueDates(object):
+class EnforceDueDates:
     """
     xBlock Mixin to allow xblocks to check the due date
     (taking the graceperiod into account) of the
