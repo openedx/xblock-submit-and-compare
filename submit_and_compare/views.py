@@ -213,7 +213,7 @@ class SubmitAndCompareViewMixin(
         # pylint: disable=no-member
         tree = etree.parse(StringIO(self.question_string))
         raw_hints = tree.xpath('/submit_and_compare/demandhint/hint')
-        decorated_hints = list()
+        decorated_hints = []
         total_hints = len(raw_hints)
         for i, raw_hint in enumerate(raw_hints, 1):
             hint = 'Hint ({number} of {total}): {hint}'.format(
