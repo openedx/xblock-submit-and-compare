@@ -17,7 +17,9 @@ packaging==21.0
 platformdirs==2.2.0
     # via virtualenv
 pluggy==0.13.1
-    # via tox
+    # via
+    #   -c requirements/common_constraints.txt
+    #   tox
 py==1.10.0
     # via tox
 pyparsing==2.4.7
@@ -28,7 +30,7 @@ six==1.16.0
     #   virtualenv
 toml==0.10.2
     # via tox
-tox==3.24.1
+tox==3.24.3
     # via -r requirements/tox.in
 virtualenv==20.7.2
     # via tox
