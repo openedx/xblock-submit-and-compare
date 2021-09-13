@@ -80,7 +80,7 @@ six==1.16.0
     #   -r requirements/base.txt
     #   fs
     #   python-dateutil
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
