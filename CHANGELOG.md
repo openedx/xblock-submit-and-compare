@@ -27,3 +27,7 @@ Version 0.4
 Version 0.5
 
 				Added grading to the xblock
+Version 1.1.0
+
+                Added support for django 3.2
+                
