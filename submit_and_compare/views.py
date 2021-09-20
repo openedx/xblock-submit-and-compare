@@ -4,6 +4,7 @@ Handle view logic for the XBlock
 import logging
 
 from django.utils.translation import ungettext
+from django.utils.translation import ugettext as _
 from lxml import etree
 from six import StringIO
 from xblock.core import XBlock
@@ -216,7 +217,7 @@ class SubmitAndCompareViewMixin(
         decorated_hints = []
         total_hints = len(raw_hints)
         for i, raw_hint in enumerate(raw_hints, 1):
-            hint = 'Hint ({number} of {total}): {hint}'.format(
+            hint = _('Hint ({number} of {total}): {hint}').format(
                 number=i,
                 total=total_hints,
                 hint=etree.tostring(raw_hint, encoding='unicode'),
