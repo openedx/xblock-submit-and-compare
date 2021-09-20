@@ -1,5 +1,6 @@
 [MESSAGES CONTROL]
 disable = 
+	consider-using-f-string,
 	locally-disabled,
 	locally-enabled,
 	no-init,
