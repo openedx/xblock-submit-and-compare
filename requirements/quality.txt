@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   fs
-astroid==2.7.3
+astroid==2.8.0
     # via pylint
 coverage==5.5
     # via -r requirements/test.txt
@@ -51,7 +51,7 @@ platformdirs==2.3.0
     # via pylint
 pycodestyle==2.7.0
     # via -r requirements/quality.in
-pylint==2.10.2
+pylint==2.11.1
     # via -r requirements/quality.in
 pymongo==3.12.0
     # via
@@ -90,6 +90,10 @@ stevedore==3.4.0
     #   edx-opaque-keys
 toml==0.10.2
     # via pylint
+typing-extensions==3.10.0.2
+    # via
+    #   astroid
+    #   pylint
 web-fragments==1.1.0
     # via
     #   -r requirements/base.txt
