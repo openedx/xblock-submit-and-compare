@@ -12,3 +12,5 @@ LOCALE_PATHS = [
     'submit_and_compare/translations',
 ]
 SECRET_KEY = 'submit_and_compare_SECRET_KEY'
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

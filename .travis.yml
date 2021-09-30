@@ -13,6 +13,7 @@ env:
   - TOXENV=django22
   - TOXENV=django30
   - TOXENV=django31
+  - TOXENV=django32
 before_install:
   - pip install -U pip
   - export BOTO_CONFIG=/dev/null
