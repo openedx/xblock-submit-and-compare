@@ -7,7 +7,7 @@ student to answer in her own words.
 After the student submits her answer, she is able to see the
 instructor's answer, and compare her answer to the expert answer.
 
-|badge-travis|
+|badge-ci|
 |badge-coveralls|
 
 |image-lms-view-normal|
@@ -103,8 +103,8 @@ Click and drag to pan around.
 
 .. |badge-coveralls| image:: https://coveralls.io/repos/github/Stanford-Online/xblock-image-modal/badge.svg?branch=master
    :target: https://coveralls.io/github/Stanford-Online/xblock-image-modal?branch=master
-.. |badge-travis| image:: https://travis-ci.org/Stanford-Online/xblock-image-modal.svg?branch=master
-   :target: https://travis-ci.org/Stanford-Online/xblock-image-modal
+.. |badge-ci| image:: https://github.com/edx/xblock-submit-and-compare/workflows/Python%20CI/badge.svg?branch=master
+   :target: https://github.com/edx/xblock-submit-and-compare/actions?query=workflow%3A%22Python+CI%22
 .. |image-cms-add| image:: https://s3-us-west-1.amazonaws.com/stanford-openedx-docs/xblocks/image-modal/static/images/cms-add.jpg
    :width: 100%
 .. |image-cms-advanced-module-list| image:: https://s3-us-west-1.amazonaws.com/stanford-openedx-docs/xblocks/image-modal/static/images/advanced-module-list.png
