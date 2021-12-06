@@ -12,9 +12,9 @@ asgiref==3.4.1
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.8.6
+astroid==2.9.0
     # via pylint
-coverage==6.1.2
+coverage==6.2
     # via -r requirements/test.txt
 django==3.2.9
     # via
@@ -55,9 +55,9 @@ platformdirs==2.4.0
     # via pylint
 pycodestyle==2.8.0
     # via -r requirements/quality.in
-pylint==2.11.1
+pylint==2.12.2
     # via -r requirements/quality.in
-pymongo==3.12.1
+pymongo==4.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -94,7 +94,7 @@ stevedore==3.5.0
     #   edx-opaque-keys
 toml==0.10.2
     # via pylint
-typing-extensions==4.0.0
+typing-extensions==4.0.1
     # via
     #   astroid
     #   pylint
