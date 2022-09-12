@@ -4,13 +4,13 @@
 #
 #    make upgrade
 #
-coverage==6.4.2
+coverage==6.4.4
     # via -r requirements/test.in
 edx-opaque-keys==2.3.0
     # via -r requirements/test.in
 mock==4.0.3
     # via -r requirements/test.in
-pbr==5.9.0
+pbr==5.10.0
     # via stevedore
 pymongo==3.12.3
     # via edx-opaque-keys
