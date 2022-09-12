@@ -103,8 +103,8 @@ Click and drag to pan around.
 
 .. |badge-coveralls| image:: https://coveralls.io/repos/github/Stanford-Online/xblock-image-modal/badge.svg?branch=master
    :target: https://coveralls.io/github/Stanford-Online/xblock-image-modal?branch=master
-.. |badge-ci| image:: https://github.com/edx/xblock-submit-and-compare/workflows/Python%20CI/badge.svg?branch=master
-   :target: https://github.com/edx/xblock-submit-and-compare/actions?query=workflow%3A%22Python+CI%22
+.. |badge-ci| image:: https://github.com/openedx/xblock-submit-and-compare/workflows/Python%20CI/badge.svg?branch=master
+   :target: https://github.com/openedx/xblock-submit-and-compare/actions?query=workflow%3A%22Python+CI%22
 .. |image-cms-add| image:: https://s3-us-west-1.amazonaws.com/stanford-openedx-docs/xblocks/image-modal/static/images/cms-add.jpg
    :width: 100%
 .. |image-cms-advanced-module-list| image:: https://s3-us-west-1.amazonaws.com/stanford-openedx-docs/xblocks/image-modal/static/images/advanced-module-list.png
