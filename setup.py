@@ -5,9 +5,9 @@ import os
 import re
 from os import path
 
-from setuptools import setup
+from setuptools import find_packages, setup
 
-version = '1.1.1'
+version = '1.1.3'
 description = __doc__.strip().split('\n')[0]
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.rst')) as file_in:
@@ -89,9 +89,9 @@ setup(
     author_email='stv@stanford.edu',
     url='https://github.com/Stanford-Online/xblock-submit-and-compare',
     license='AGPL-3.0',
-    packages=[
-        'submit_and_compare',
-    ],
+    packages=find_packages(
+        include=['submit_and_compare', 'submit_and_compare.*']
+    ),
     install_requires=load_requirements('requirements/base.in'),
     entry_points={
         'xblock.v1': [
