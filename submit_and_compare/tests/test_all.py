@@ -7,7 +7,6 @@ from xml.sax.saxutils import escape
 
 from unittest import mock
 from django.test.client import Client
-from django.utils.translation import ugettext as _
 from opaque_keys.edx.locations import SlashSeparatedCourseKey
 from xblock.field_data import DictFieldData
 
@@ -112,7 +111,7 @@ class SubmitAndCompareXblockTestCase(unittest.TestCase):
         self.xblock.score = 0
         self.xblock.weight = 1
         self.assertEqual(
-            _('(1 point possible)'),
+            '(1 point possible)',
             self.xblock._get_problem_progress(),
         )
 
@@ -125,7 +124,7 @@ class SubmitAndCompareXblockTestCase(unittest.TestCase):
         self.xblock.score = 0
         self.xblock.weight = 3
         self.assertEqual(
-            _('(3 points possible)'),
+            '(3 points possible)',
             self.xblock._get_problem_progress(),
         )
 
@@ -138,7 +137,7 @@ class SubmitAndCompareXblockTestCase(unittest.TestCase):
         self.xblock.score = 1
         self.xblock.weight = 1
         self.assertEqual(
-            _('(1/1 point)'),
+            '(1/1 point)',
             self.xblock._get_problem_progress(),
         )
 
@@ -151,7 +150,7 @@ class SubmitAndCompareXblockTestCase(unittest.TestCase):
         self.xblock.score = 1
         self.xblock.weight = 3
         self.assertEqual(
-            _('(3/3 points)'),
+            '(3/3 points)',
             self.xblock._get_problem_progress(),
         )
 
@@ -172,7 +171,7 @@ class SubmitAndCompareXblockTestCase(unittest.TestCase):
         self.xblock.max_attempts = 5
         self.xblock.count_attempts = 3
         self.assertEqual(
-            _('You have used 3 of 5 submissions'),
+            'You have used 3 of 5 submissions',
             self.xblock._get_used_attempts_feedback(),
         )
 
