@@ -15,6 +15,11 @@ ifeq ($(strip $(po_files)),)
 endif
 mo_files := $(patsubst %.po,%.mo,$(po_files))
 
+WORKING_DIR := submit_and_compare
+EXTRACT_DIR := $(WORKING_DIR)/conf/locale/en/LC_MESSAGES
+EXTRACTED_DJANGO := $(EXTRACT_DIR)/django-partial.po
+EXTRACTED_TEXT := $(EXTRACT_DIR)/django.po
+
 .PHONY: help
 help:  ## This.
 	@perl -ne 'print if /^[a-zA-Z_-]+:.*## .*$$/' $(MAKEFILE_LIST) \
@@ -135,3 +140,9 @@ docker_shell:  ## Drop into a shell inside the docker container
 docker_static: ; make build_docker; $(run-in-docker)  ## Compile static assets in docker container
 docker_translations: ; make build_docker; $(run-in-docker)  ## Update translation files in docker container
 docker_test: ; make build_docker; $(run-in-docker)  ## Run tests in docker container
+
+extract_translations: ## extract strings to be translated, outputting .po files
+	cd $(WORKING_DIR) && i18n_tool extract
+	mv $(EXTRACTED_DJANGO) $(EXTRACTED_TEXT)
+	sed -i'' -e 's/nplurals=INTEGER/nplurals=2/' $(EXTRACTED_TEXT)
+	sed -i'' -e 's/plural=EXPRESSION/plural=\(n != 1\)/' $(EXTRACTED_TEXT)
