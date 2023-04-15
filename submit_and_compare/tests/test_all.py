@@ -53,7 +53,11 @@ class SubmitAndCompareXblockTestCase(unittest.TestCase):
         """
         Checks studio view for instance variables specified by the instructor.
         """
-        studio_view_html = self.studio_view_html()
+        with mock.patch(
+            "submit_and_compare.mixins.fragment.XBlockFragmentBuilderMixin.get_i18n_service",
+            return_value=None
+        ):
+            studio_view_html = self.studio_view_html()
         self.assertIn(self.xblock.display_name, studio_view_html)
         xblock_body = get_body(
             self.xblock.question_string
