@@ -22,6 +22,12 @@ class XBlockFragmentBuilderMixin:
     static_js_init = None
     template = 'view.html'
 
+    def get_i18n_service(self):
+        """
+        Get the i18n service from the runtime
+        """
+        return self.runtime.service(self, 'i18n')
+
     def provide_context(self, context):  # pragma: no cover
         """
         Build a context dictionary to render the student view
@@ -71,7 +77,7 @@ class XBlockFragmentBuilderMixin:
             rendered_template = self.loader.render_django_template(
                 template,
                 context=Context(context),
-                i18n_service=self.runtime.service(self, 'i18n'),
+                i18n_service=self.get_i18n_service(),
             )
         fragment = Fragment(rendered_template)
         for item in css:
