@@ -12,7 +12,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.15.4
+astroid==2.15.5
     # via pylint
 coverage==7.2.5
     # via -r requirements/test.txt
@@ -53,7 +53,7 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-platformdirs==3.5.0
+platformdirs==3.5.1
     # via pylint
 pycodestyle==2.10.0
     # via -r requirements/quality.in
