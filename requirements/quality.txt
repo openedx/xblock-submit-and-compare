@@ -8,13 +8,13 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   fs
-asgiref==3.6.0
+asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.15.4
+astroid==2.15.5
     # via pylint
-coverage==7.2.5
+coverage==7.2.6
     # via -r requirements/test.txt
 dill==0.3.6
     # via pylint
@@ -53,7 +53,7 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-platformdirs==3.5.0
+platformdirs==3.5.1
     # via pylint
 pycodestyle==2.10.0
     # via -r requirements/quality.in
@@ -89,7 +89,7 @@ sqlparse==0.4.4
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.0.0
+stevedore==5.1.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -97,8 +97,10 @@ tomli==2.0.1
     # via pylint
 tomlkit==0.11.8
     # via pylint
-typing-extensions==4.5.0
+typing-extensions==4.6.2
     # via
+    #   -r requirements/base.txt
+    #   asgiref
     #   astroid
     #   pylint
 web-fragments==2.0.0
