@@ -14,7 +14,7 @@ asgiref==3.7.2
     #   django
 astroid==2.15.5
     # via pylint
-coverage==7.2.6
+coverage==7.2.7
     # via -r requirements/test.txt
 dill==0.3.6
     # via pylint
@@ -40,7 +40,7 @@ mako==1.2.4
     # via
     #   -r requirements/base.txt
     #   xblock-utils
-markupsafe==2.1.2
+markupsafe==2.1.3
     # via
     #   -r requirements/base.txt
     #   mako
@@ -97,7 +97,7 @@ tomli==2.0.1
     # via pylint
 tomlkit==0.11.8
     # via pylint
-typing-extensions==4.6.2
+typing-extensions==4.6.3
     # via
     #   -r requirements/base.txt
     #   asgiref
@@ -118,7 +118,7 @@ xblock==1.6.2
     # via
     #   -r requirements/base.txt
     #   xblock-utils
-xblock-utils==3.0.0
+xblock-utils==3.1.0
     # via -r requirements/base.txt
 
 # The following packages are considered to be unsafe in a requirements file:
