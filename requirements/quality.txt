@@ -12,13 +12,13 @@ asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.15.5
+astroid==2.15.6
     # via pylint
 coverage==7.2.7
     # via -r requirements/test.txt
 dill==0.3.6
     # via pylint
-django==3.2.19
+django==3.2.20
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
@@ -32,7 +32,7 @@ isort==5.12.0
     # via pylint
 lazy-object-proxy==1.9.0
     # via astroid
-lxml==4.9.2
+lxml==4.9.3
     # via
     #   -r requirements/base.txt
     #   xblock
@@ -53,7 +53,7 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-platformdirs==3.8.0
+platformdirs==3.8.1
     # via pylint
 pycodestyle==2.10.0
     # via -r requirements/quality.in
