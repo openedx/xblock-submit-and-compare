@@ -8,7 +8,7 @@ coverage==7.2.7
     # via -r requirements/test.in
 edx-opaque-keys==2.3.0
     # via -r requirements/test.in
-mock==5.0.2
+mock==5.1.0
     # via -r requirements/test.in
 pbr==5.11.1
     # via stevedore
