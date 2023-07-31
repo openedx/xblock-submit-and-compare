@@ -3,8 +3,8 @@ Handle view logic for the XBlock
 """
 import logging
 
-from django.utils.translation import ungettext
-from django.utils.translation import ugettext as _
+from django.utils.translation import ngettext
+from django.utils.translation import gettext as _
 from lxml import etree
 from six import StringIO
 from xblock.core import XBlock
@@ -237,7 +237,7 @@ class SubmitAndCompareViewMixin(
         result = ''
         if self.max_attempts > 0:
             # pylint: disable=no-member
-            result = ungettext(
+            result = ngettext(
                 'You have used {count_attempts} of {max_attempts} submission',
                 'You have used {count_attempts} of {max_attempts} submissions',
                 self.max_attempts,
@@ -280,7 +280,7 @@ class SubmitAndCompareViewMixin(
             result = ''
         elif self.score == 0.0:
             result = "({})".format(
-                ungettext(
+                ngettext(
                     '{weight} point possible',
                     '{weight} points possible',
                     self.weight,
@@ -292,7 +292,7 @@ class SubmitAndCompareViewMixin(
             scaled_score = self.score * self.weight
             score_string = f'{scaled_score:g}'
             result = "({})".format(
-                ungettext(
+                ngettext(
                     score_string + '/' + "{weight} point",
                     score_string + '/' + "{weight} points",
                     self.weight,
