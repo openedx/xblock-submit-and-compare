@@ -4,9 +4,9 @@
 #
 #    make upgrade
 #
-coverage==7.2.7
+coverage==7.3.0
     # via -r requirements/test.in
-edx-opaque-keys==2.3.0
+edx-opaque-keys==2.4.0
     # via -r requirements/test.in
 mock==5.1.0
     # via -r requirements/test.in
