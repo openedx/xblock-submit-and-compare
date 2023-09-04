@@ -4,9 +4,9 @@
 #
 #    make upgrade
 #
-coverage==7.2.7
+coverage==7.3.0
     # via -r requirements/test.in
-edx-opaque-keys==2.3.0
+edx-opaque-keys==2.5.0
     # via -r requirements/test.in
 mock==5.1.0
     # via -r requirements/test.in
@@ -15,4 +15,6 @@ pbr==5.11.1
 pymongo==3.13.0
     # via edx-opaque-keys
 stevedore==5.1.0
+    # via edx-opaque-keys
+typing-extensions==4.7.1
     # via edx-opaque-keys
