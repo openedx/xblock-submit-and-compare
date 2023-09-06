@@ -1,0 +1,78 @@
+{% load i18n %}
+
+<div class="wrapper-comp-settings editor-with-buttons is-active" id="settings-tab">
+    <ul class="list-input settings-list">
+        
+         <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="submit_and_compare_edit_display_name">{% trans "Display Name" %}</label>
+                <input class="input setting-input" id="submit_and_compare_edit_display_name" value="{{ display_name }}" type="text">
+            </div>
+            <span class="tip setting-help">{% trans "This name appears in the horizontal navigation at the top of the page" %}</span>
+        </li>
+
+        <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="submit_and_compare_edit_weight">{% trans "Weight" %}</label>
+                <input class="input setting-input" id="submit_and_compare_edit_weight" step="1" min="0" value="{{ weight }}" type="number">
+          </div>
+          <span class="tip setting-help">{% trans "This assigns an integer value representing the weight of this problem" %}</span>
+        </li>
+
+        <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="submit_and_compare_edit_max_attempts">{% trans "Max Attempts" %}</label>
+                <input class="input setting-input" id="submit_and_compare_edit_max_attempts" step="1" min="0" value="{{ max_attempts }}" type="number">
+          </div>
+          <span class="tip setting-help">{% trans "This assigns an integer value representing the maximum number of times a student can attempt the problem" %}</span>
+        </li>
+
+         <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="submit_and_compare_edit_your_answer_label">{% trans "Label for Student Answer" %}</label>
+                <input class="input setting-input" id="submit_and_compare_edit_your_answer_label" value="{{ your_answer_label }}" type="text">
+            </div>
+            <span class="tip setting-help">{% trans "Label for the text area containing the student's answer" %}</span>
+        </li>
+
+         <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="submit_and_compare_edit_our_answer_label">{% trans "Label for Expert Answer" %}</label>
+                <input class="input setting-input" id="submit_and_compare_edit_our_answer_label" value="{{ our_answer_label }}" type="text">
+            </div>
+            <span class="tip setting-help">{% trans "Label for the 'expert' answer" %}</span>
+        </li>
+
+        <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="submit_and_compare_edit_submit_button_label">{% trans "Label for Submit Button" %}</label>
+                <input class="input setting-input" id="submit_and_compare_edit_submit_button_label" value="{{ submit_button_label }}" type="text">
+            </div>
+            <span class="tip setting-help">{% trans "Label for the submit button" %}</span>
+        </li>
+        
+        <li class="field comp-setting-entry is-set">
+          <div class="wrapper-comp-setting">
+            <label class="label setting-label" for="edit_data">{% trans "Definition" %}</label>
+            <span class="tip setting-help">{% trans "The XML definition for the question and expert answer" %}</span>
+            <div class='codemirror-editor-wrapper'>
+              <textarea class="block-xml-editor edit-data">{{ xml_data }}</textarea>
+            </div>
+          </div>
+      </li>
+
+    </ul>
+    
+    <div class="xblock-actions">
+        <ul>
+            <li class="action-item">
+                <a href="#" class="button action-primary action-save">{% trans "Save" %}</a>
+            </li>
+            <li class="action-item">
+                <a href="#" class="button action-cancel">{% trans "Cancel" %}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+

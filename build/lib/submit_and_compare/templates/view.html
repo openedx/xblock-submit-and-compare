@@ -1,0 +1,37 @@
+<div class='submit_and_compare'>
+	<h2 class="problem_header">{{ display_name }}</h2>
+	<div class="problem_progress">{{ problem_progress }}</div>
+	<div class='question_prompt'>{{ prompt }}</div>
+	<div class='student_answer'>
+		<div class='your_answer nodisplay'>{{ your_answer_label }}</div>
+		<textarea class='answer'>{{ student_answer }}</textarea>
+	</div>
+	<div class='expert_answer nodisplay'>
+		<div class='our_answer'>{{ our_answer_label }}</div>
+		<div class='explanation'>{{ explanation }}</div>
+	</div>
+	<div class='hint nodisplay'>{{hint}}</div>
+	<div class='button_holder {{ submit_class }}'>
+		{% if not is_past_due %}
+			<div class='inline'>
+				<input
+				class='submit_button'
+				type='button'
+				value='{{ submit_button_label }}'></input>
+			</div>
+			<div class='hint_button_holder nodisplay'>
+				<input
+				class='hint_button'
+				type='button'
+				value='Hint'></input>
+			</div>
+			<div class='inline'>
+				<input
+				class='reset_button'
+				type='button'
+				value='Reset'></input>
+			</div>
+		{% endif %}
+	</div>
+	<div class="used_attempts_feedback">{{ used_attempts_feedback }}</div>
+</div>
