@@ -12,13 +12,13 @@ asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.15.6
+astroid==2.15.8
     # via pylint
-boto3==1.28.44
+boto3==1.28.57
     # via
     #   -r requirements/base.txt
     #   fs-s3fs
-botocore==1.31.44
+botocore==1.31.57
     # via
     #   -r requirements/base.txt
     #   boto3
@@ -32,7 +32,7 @@ django==3.2.21
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   openedx-django-pyfs
-edx-opaque-keys==2.5.0
+edx-opaque-keys==2.5.1
     # via -r requirements/test.txt
 fs==2.4.16
     # via
@@ -51,7 +51,7 @@ jmespath==1.0.1
     #   -r requirements/base.txt
     #   boto3
     #   botocore
-lazy==1.5
+lazy==1.6
     # via
     #   -r requirements/base.txt
     #   xblock
@@ -86,7 +86,7 @@ platformdirs==3.10.0
     # via pylint
 pycodestyle==2.11.0
     # via -r requirements/quality.in
-pylint==2.17.5
+pylint==2.17.7
     # via -r requirements/quality.in
 pymongo==3.13.0
     # via
@@ -106,7 +106,7 @@ pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
     #   xblock
-s3transfer==0.6.2
+s3transfer==0.7.0
     # via
     #   -r requirements/base.txt
     #   boto3
@@ -132,7 +132,7 @@ tomli==2.0.1
     # via pylint
 tomlkit==0.12.1
     # via pylint
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
@@ -155,7 +155,7 @@ webob==1.8.7
     #   xblock
 wrapt==1.15.0
     # via astroid
-xblock[django]==1.7.0
+xblock[django]==1.8.0
     # via
     #   -r requirements/base.txt
     #   xblock-utils
