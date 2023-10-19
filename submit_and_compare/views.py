@@ -8,7 +8,10 @@ from django.utils.translation import gettext as _
 from lxml import etree
 from six import StringIO
 from xblock.core import XBlock
-from xblockutils.resources import ResourceLoader
+try:
+    from xblock.utils.resources import ResourceLoader
+except ModuleNotFoundError:  # For backward compatibility with releases older than Quince.
+    from xblockutils.resources import ResourceLoader
 
 from .mixins.fragment import XBlockFragmentBuilderMixin
 
