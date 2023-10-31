@@ -33,4 +33,7 @@ Version 1.1.0
 Version 1.2.0
 
                 Added support for django 4.2				
-                
+
+Version 1.3.0
+
+                Remove xblock-utils package and migrate to xblock.utils				
