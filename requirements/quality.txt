@@ -18,7 +18,7 @@ coverage==7.3.2
     # via -r requirements/test.txt
 dill==0.3.7
     # via pylint
-django==3.2.22
+django==3.2.23
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
@@ -93,7 +93,7 @@ stevedore==5.1.0
     #   edx-opaque-keys
 tomli==2.0.1
     # via pylint
-tomlkit==0.12.1
+tomlkit==0.12.2
     # via pylint
 typing-extensions==4.8.0
     # via
