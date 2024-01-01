@@ -14,7 +14,7 @@ asgiref==3.7.2
     #   django
 astroid==3.0.2
     # via pylint
-coverage==7.3.3
+coverage==7.4.0
     # via -r requirements/test.txt
 dill==0.3.7
     # via pylint
@@ -30,7 +30,7 @@ fs==2.4.16
     #   xblock
 isort==5.13.2
     # via pylint
-lxml==4.9.3
+lxml==5.0.0
     # via
     #   -r requirements/base.txt
     #   xblock
