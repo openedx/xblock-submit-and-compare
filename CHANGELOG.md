@@ -37,3 +37,8 @@ Version 1.2.0
 Version 1.3.0
 
                 Remove xblock-utils package and migrate to xblock.utils				
+
+Version 2.0.0
+
+                Remove Transifex calls and bundled translation files for the OEP-58 proposal.
+                BREAKING CHANGE: This version breaks translations with Quince and earlier releases.
