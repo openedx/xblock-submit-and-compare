@@ -11,6 +11,7 @@ disable =
 	too-many-instance-attributes,
 	too-many-public-methods,
 	useless-object-inheritance,
+	consider-using-min-builtin,
 
 [REPORTS]
 output-format = text
