@@ -37,3 +37,7 @@ Version 1.2.0
 Version 1.3.0
 
                 Remove xblock-utils package and migrate to xblock.utils				
+
+Version 1.4.0
+
+                Added support for python 3.11 support. Removed django 3.2 support.
