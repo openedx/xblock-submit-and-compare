@@ -38,10 +38,11 @@ Version 1.3.0
 
                 Remove xblock-utils package and migrate to xblock.utils				
 
-Version 2.1.0
-
-                Added support for python 3.11 support. Removed django 3.2 support.
 Version 2.0.0
 
                 Remove Transifex calls and bundled translation files for the OEP-58 proposal.
                 BREAKING CHANGE: This version breaks translations with Quince and earlier releases.
+
+Version 2.1.0
+
+                Added support for python 3.11 support. Removed django 3.2 support.
