@@ -92,14 +92,6 @@ translations:  ## Update translation files
 	@echo 'where `fr` is the language code.'
 	@echo
 
-.PHONY: translations_pull
-translations_pull:  ## Pull new translations from Transifex
-	tox -e transifex_pull
-
-.PHONY: translations_push
-translations_push:  ## Push translations to Transifex
-	tox -e transifex_push
-
 COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
 .PHONY: $(COMMON_CONSTRAINTS_TXT)
 $(COMMON_CONSTRAINTS_TXT):
