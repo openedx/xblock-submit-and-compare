@@ -149,7 +149,7 @@ class SubmitAndCompareViewMixin(
         self.weight = _convert_to_int(data['weight'])
         max_attempts = _convert_to_int(data['max_attempts'])
         if max_attempts >= 0:
-            self.max_attempts = max_attempts
+            self.max_attempts = max_attempts    # pylint: disable=consider-using-min-builtin
         self.your_answer_label = data['your_answer_label']
         self.our_answer_label = data['our_answer_label']
         self.submit_button_label = data['submit_button_label']
