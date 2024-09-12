@@ -2,7 +2,8 @@
 Mixin workbench behavior into XBlocks
 """
 from glob import glob
-import pkg_resources
+import importlib
+import importlib.resources
 
 
 def _read_file(file_path):
@@ -66,7 +67,7 @@ class XBlockWorkbenchMixin:
         """
         module = cls.__module__
         module = module.split('.', maxsplit=1)[0]
-        directory = pkg_resources.resource_filename(module, 'scenarios')
+        directory = importlib.resources.files(module) / 'scenarios'
         files = _find_files(directory)
         scenarios = _read_files(files)
         return scenarios
