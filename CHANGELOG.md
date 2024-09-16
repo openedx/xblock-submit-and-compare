@@ -46,4 +46,7 @@ Version 2.0.0
 Version 2.1.0
 
                 Added support for python 3.11 support. Removed django 3.2 support.
-				Dropped support for Python 3.8 and added support for Python 3.12.
+
+Version 2.2.0
+
+		Dropped support for Python 3.8 and added support for Python 3.12.
