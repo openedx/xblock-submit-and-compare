@@ -49,4 +49,4 @@ Version 2.1.0
 
 Version 3.0.0
 
-		Dropped support for Python 3.8 and added support for Python 3.12.
+		Dropped support for Python 3.8 and added support for Python 3.11 and 3.12.
