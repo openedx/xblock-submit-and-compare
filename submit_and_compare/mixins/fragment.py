@@ -57,6 +57,7 @@ class XBlockFragmentBuilderMixin:
         )
         return fragment
 
+    # pylint: disable=too-many-positional-arguments
     def build_fragment(
             self,
             template='',
