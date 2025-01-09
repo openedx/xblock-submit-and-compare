@@ -1,0 +1,65 @@
+.submit_and_compare .question_prompt {
+  text-align: left;
+}
+.submit_and_compare .student_answer {
+  color: #3399cc;
+  font-weight: 600;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.submit_and_compare .answer {
+  border: 3px solid #cccccc;
+  height: 120px;
+  max-width: 100%;
+  padding: 5px;
+  width: 100%;
+}
+.submit_and_compare .expert_answer {
+  padding-bottom: 20px;
+  text-align: left;
+}
+.submit_and_compare .our_answer {
+  color: #009900;
+  font-weight: 600;
+  text-align: left;
+}
+.submit_and_compare .hint {
+  padding-bottom: 20px;
+  text-align: left;
+}
+.submit_and_compare .reset_button {
+  font-weight: 600;
+  height: 40px;
+  vertical-align: middle;
+}
+.submit_and_compare .hint_button {
+  font-weight: 600;
+  height: 40px;
+  vertical-align: middle;
+}
+.submit_and_compare .submit_button {
+  font-weight: 600;
+  height: 40px;
+  vertical-align: middle;
+}
+.submit_and_compare .problem_progress {
+  color: #666;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5px;
+}
+.submit_and_compare .problem_header {
+  display: inline-block;
+}
+.submit_and_compare .used_attempts_feedback {
+  color: #666;
+  font-style: italic;
+  margin-top: 8px;
+}
+.submit_and_compare .nodisplay {
+  display: none;
+}
+.submit_and_compare .inline {
+  display: inline;
+}
