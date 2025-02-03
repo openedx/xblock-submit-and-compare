@@ -14,7 +14,7 @@ mock==5.1.0
     # via -r requirements/test.in
 pbr==6.1.0
     # via stevedore
-pymongo==4.10.1
+pymongo==4.11
     # via edx-opaque-keys
 stevedore==5.4.0
     # via edx-opaque-keys
