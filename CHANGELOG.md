@@ -50,3 +50,7 @@ Version 2.1.0
 Version 3.0.0
 
 		Dropped support for Python 3.8 and added support for Python 3.11 and 3.12.
+
+Version 3.1.0
+
+                Added support for django 5.2.
